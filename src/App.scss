@@ -1,4 +1,4 @@
-@import url("//fonts.googleapis.com/css?family=Roboto+Mono");
+@import url("//fonts.googleapis.com/css?family=Roboto+Mono:400,700");
 
 $black: #000;
 $base-font-stack: "Roboto Mono", monospace;
@@ -22,15 +22,30 @@ body {
   font-family: $base-font-stack;
 }
 
+@media print {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 .app-block {
-  padding: vr(2);
+  margin: 0 auto;
+  max-width: 768px;
+  padding: vr(2) 0;
+
+  @media print {
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+  }
 }
 
 .fields-block {
   display: flex;
   flex-direction: row;
-  margin: 0 auto;
-  max-width: 768px;
+  margin-bottom: vr(2);
 
   .text-field {
     flex: 1;
@@ -39,6 +54,10 @@ body {
     &:nth-child(1) {
       flex: 2;
     }
+  }
+
+  @media print {
+    display: none;
   }
 }
 
@@ -60,5 +79,43 @@ body {
     min-width: 0;
     padding: 0 vr(0.5);
     width: 100%;
+  }
+}
+
+@page {
+  size: 8in 2.893in;
+}
+
+.check-paper {
+  font-size: 21px;
+  font-weight: 700;
+
+  @media print {
+    font-size: 16px;
+
+    &__name {
+      left: 1.1in;
+      position: absolute;
+      top: 0.76in;
+      width: 4.3in;
+    }
+
+    &__date {
+      left: 6.2in;
+      position: absolute;
+      top: 0.4in;
+    }
+
+    &__amount {
+      left: 6in;
+      position: absolute;
+      top: 0.7in;
+    }
+
+    &__words {
+      left: 0.7in;
+      position: absolute;
+      top: 1.06in;
+    }
   }
 }

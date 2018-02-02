@@ -46,6 +46,7 @@ class App extends Component {
           <div className="check-paper__name">{name.toUpperCase()}</div>
           <div className="check-paper__date">{date.toUpperCase()}</div>
           <div className="check-paper__amount">{amount}</div>
+          <div className="check-paper__words">{amount}</div>
         </div>
       </div>
     )
