@@ -1,0 +1,134 @@
+@import url("//fonts.googleapis.com/css?family=Roboto+Mono:400,700");
+
+$black: #000;
+$base-font-stack: "Roboto Mono", monospace;
+
+@function vr($multiplier) {
+  @return 24px * $multiplier;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
+  -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+  height: 100%;
+}
+
+body {
+  color: $black;
+  font-family: $base-font-stack;
+  font-size: 16px;
+}
+
+@media print {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.app-block {
+  margin: 0 auto;
+  max-width: 768px;
+  padding: vr(2) 0;
+
+  @media print {
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+.fields-block {
+  border-bottom: 2px dashed change-color($black, $alpha: 0.5);
+  display: flex;
+  flex-direction: row;
+  padding-bottom: vr(2);
+  margin-bottom: vr(2);
+
+  .text-field {
+    flex: 1;
+    margin-right: vr(1);
+
+    &:nth-child(1) {
+      flex: 2;
+    }
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+.text-field {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  &__label {
+    font-family: $base-font-stack;
+    margin-right: vr(0.5);
+  }
+
+  &__input {
+    border: 2px solid change-color($black, $alpha: 0.5);
+    flex: 1;
+    font-family: $base-font-stack;
+    height: vr(1.5);
+    min-width: 0;
+    padding: 0 vr(0.5);
+    width: 100%;
+  }
+}
+
+@page {
+  size: 8in 2.893in;
+}
+
+.check-paper {
+  font-weight: 700;
+
+  &__name,
+  &__date,
+  &__amount,
+  &__words {
+    margin-bottom: vr(0.5);
+  }
+
+  @media print {
+    font-size: 14px;
+
+    &__name {
+      left: 1.1in;
+      margin: 0;
+      position: absolute;
+      top: 0.77in;
+      width: 4.3in;
+    }
+
+    &__date {
+      left: 6in;
+      margin: 0;
+      position: absolute;
+      top: 0.45in;
+    }
+
+    &__amount {
+      left: 6in;
+      margin: 0;
+      position: absolute;
+      top: 0.7in;
+    }
+
+    &__words {
+      left: 0.7in;
+      margin: 0;
+      position: absolute;
+      top: 1.07in;
+    }
+  }
+}
