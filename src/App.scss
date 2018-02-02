@@ -1,33 +1,64 @@
-.App {
-  text-align: center;
+@import url("//fonts.googleapis.com/css?family=Roboto+Mono");
 
-  &-logo {
-    animation: App-logo-spin infinite 2s linear;
-    height: 80px;
-  }
+$black: #000;
+$base-font-stack: "Roboto Mono", monospace;
 
-  &-header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
-    color: white;
-  }
+@function vr($multiplier) {
+  @return 24px * $multiplier;
+}
 
-  &-title {
-    font-size: 1.5em;
-  }
+* {
+  box-sizing: border-box;
+}
 
-  &-intro {
-    font-size: large;
+html {
+  -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
+  -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+  height: 100%;
+}
+
+body {
+  color: $black;
+  font-family: $base-font-stack;
+}
+
+.app-block {
+  padding: vr(2);
+}
+
+.fields-block {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  max-width: 768px;
+
+  .text-field {
+    flex: 1;
+    margin-right: vr(1);
+
+    &:nth-child(1) {
+      flex: 2;
+    }
   }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.text-field {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  &__label {
+    font-family: $base-font-stack;
+    margin-right: vr(0.5);
   }
 
-  to {
-    transform: rotate(360deg);
+  &__input {
+    border: 2px solid change-color($black, $alpha: 0.5);
+    flex: 1;
+    font-family: $base-font-stack;
+    height: vr(1.5);
+    min-width: 0;
+    padding: 0 vr(0.5);
+    width: 100%;
   }
 }
