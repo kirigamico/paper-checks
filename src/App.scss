@@ -20,6 +20,7 @@ html {
 body {
   color: $black;
   font-family: $base-font-stack;
+  font-size: 16px;
 }
 
 @media print {
@@ -43,8 +44,10 @@ body {
 }
 
 .fields-block {
+  border-bottom: 2px dashed change-color($black, $alpha: 0.5);
   display: flex;
   flex-direction: row;
+  padding-bottom: vr(2);
   margin-bottom: vr(2);
 
   .text-field {
@@ -87,35 +90,45 @@ body {
 }
 
 .check-paper {
-  font-size: 21px;
   font-weight: 700;
 
+  &__name,
+  &__date,
+  &__amount,
+  &__words {
+    margin-bottom: vr(0.5);
+  }
+
   @media print {
-    font-size: 16px;
+    font-size: 14px;
 
     &__name {
       left: 1.1in;
+      margin: 0;
       position: absolute;
-      top: 0.76in;
+      top: 0.77in;
       width: 4.3in;
     }
 
     &__date {
-      left: 6.2in;
+      left: 6in;
+      margin: 0;
       position: absolute;
-      top: 0.4in;
+      top: 0.45in;
     }
 
     &__amount {
       left: 6in;
+      margin: 0;
       position: absolute;
       top: 0.7in;
     }
 
     &__words {
       left: 0.7in;
+      margin: 0;
       position: absolute;
-      top: 1.06in;
+      top: 1.07in;
     }
   }
 }
