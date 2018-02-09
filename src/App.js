@@ -6,6 +6,23 @@ import './App.scss'
 
 const DATE_FORMAT = 'MMM D, YYYY'
 
+moment.updateLocale('en', {
+  monthsShort: [
+    'Jan.',
+    'Feb.',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'Aug.',
+    'Sept.',
+    'Oct.',
+    'Nov.',
+    'Dec.'
+  ]
+})
+
 
 const TextField = ({label, onChange, id, value}) => (
   <div className="text-field">
@@ -35,7 +52,7 @@ class App extends Component {
   }
 
   handleDateChange(event) {
-    this.setState({date: event.target.value.trim()})
+    this.setState({date: event.target.value})
   }
 
   handleAmountChange(event) {
