@@ -56,6 +56,11 @@ class App extends Component {
 
     return (
       <div className="app-block">
+        <div className="copy-block">
+          <h1>Paper Checks</h1>
+          <p>Never handwrite a check again.</p>
+          <p>Fill in the details, and hit Cmd/Ctrl + P. Works best with Chrome.</p>
+        </div>
         <div className="fields-block">
           <TextField label="Name" id="name" onChange={(ev) => this.handleNameChange(ev)} />
           <TextField label="Date" id="date" onChange={(ev) => this.handleDateChange(ev)} />

@@ -23,6 +23,16 @@ body {
   font-size: 16px;
 }
 
+@media only screen {
+  h1 {
+    line-height: 1.2;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+}
+
 @media print {
   html,
   body {
@@ -40,6 +50,19 @@ body {
     margin: 0;
     max-width: 100%;
     padding: 0;
+  }
+}
+
+.copy-block {
+  margin-bottom: vr(2);
+
+  h1,
+  p {
+    margin: 0 0 vr(1);
+  }
+
+  @media print {
+    display: none;
   }
 }
 
